@@ -1,6 +1,6 @@
 {
   "name": "MONI-ToDo-App",
-  "short_name": "NONI ToDo App",
+  "short_name": "MONI ToDo",
   "background_color": "#ffffff",
   "icons": [{
       "src": "./img/icon-256.png",
