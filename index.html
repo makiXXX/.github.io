@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="ja">
 <head>
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -21,64 +21,70 @@
 	<meta name="theme-color" content="#ffffff">
 
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="./js/main.js"></script>
+
+	<script src="./src/worker.js"></script>
+
 	<title>MONI ToDo App</title>
 </head>
 <body>
-	<!---
 	<header>
 		<div class="wrapper">
 			<h1>MONI ToDo App</h1>
 		</div>
 	</header>
-	--->
-	<main>
-		<div class="wrapper">
-			<ul class="list_area">
-				<li>
-					<div class="check">
-						<button type="button"></button>
-					</div>
-					<div class="text_btx">
-						<p>ここにテキストが入る</p>
-					</div>
-				</li>
-				<li>
-					<div class="check">
-						<button type="button"></button>
-					</div>
-					<div class="text_btx">
-						<p>ここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入る</p>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</main>
-	<footer>
-		<div class="send_area">
+	<div id="app">
+		<router-view></router-view>
+		
+		<main>
 			<div class="wrapper">
-				<div class="content_box">
-					<input type="text" placeholder="ここにタスクを入力">
-					<div class="send_btn"><i class="fas fa-plus-circle"></i></div>
+				<ul class="list_area">
+					<li v-for="item in todos" v-bind:key="item.id">
+						<div class="check">
+							<button type="button" v-on:click="doRemove(item)"></button>
+						</div>
+						<div class="text_btx">
+							<p>{{ item.comment }}</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="send_area">
+				<div class="wrapper">
+					<form class="content_box" v-on:submit.prevent="doAdd">
+						<input type="text" placeholder="ここにタスクを入力" ref="comment">
+						<div class="send_btn"><button type="submit"><i class="fas fa-plus-circle"></i></button></div>
+					</form>
 				</div>
 			</div>
-		</div>
-		<div class="btn_area">
-			<ul class="content_box">
-				<li class="list">
-					<i class="fas fa-list-alt"></i>
-					<p>List</p>
-				</li>
-				<li class="done">
-					<i class="fas fa-check"></i>
-					<p>Done</p>
-				</li>
-				<li class="setting">
-					<i class="fas fa-car-crash"></i>
-					<p>Setting</p>
-				</li>
-			</ul>
-		</div>
-	</footer>
+		</main>
+
+		<footer>
+			<div class="btn_area">
+				<ul class="content_box">
+					<li class="list">
+						<router-link to="/list">
+							<i class="fas fa-list-alt"></i>
+							<p>List</p>
+						</router-link>
+					</li>
+					<li class="done">
+						<router-link to="/done">
+							<i class="fas fa-check"></i>
+							<p>Done</p>
+						</router-link>
+					</li>
+					<li class="setting">
+						<router-link to="/setting">
+							<i class="fas fa-car-crash"></i>
+							<p>Setting</p>
+						</router-link>
+					</li>
+				</ul>
+			</div>
+		</footer>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/vue.router/2.0.1/vue-router.min.js"></script>
+	<script src="./src/main.js"></script>
 </body>
 </html>
