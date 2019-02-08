@@ -1,7 +1,7 @@
 {
-  "name": "PWA Sample",
-  "short_name": "PWA",
-  "background_color": "#fc980c",
+  "name": "MONI-ToDo-App",
+  "short_name": "NONI ToDo App",
+  "background_color": "#ffffff",
   "icons": [{
       "src": "./img/icon-256.png",
       "sizes": "256x256",

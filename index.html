@@ -1,16 +1,84 @@
+<!doctype html>
 <html>
 <head>
-	<!-- manifest.jsonを呼び出しています -->
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta charset="utf-8">
+	
 	<link rel="manifest" href="./manifest.json">
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/normalize.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-	<!-- script -->
+	<link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+	<link rel="manifest" href="./img/site.webmanifest">
+	<link rel="mask-icon" href="./img/safari-pinned-tab.svg" color="#5bbad5">
+	<link rel="shortcut icon" href="./img/favicon.ico">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-config" content="./img/browserconfig.xml">
+	<meta name="theme-color" content="#ffffff">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="./js/main.js"></script>
-	<title>Hello PWA.</title>
+	<title>MONI ToDo App</title>
 </head>
 <body>
-	<h1>Hello PWA.</h1>
-	<img src="./img/pwa-logo.svg" alt="PWA logo" class="image" />
-	<a href="p.html">p.html</a>
+	<!---
+	<header>
+		<div class="wrapper">
+			<h1>MONI ToDo App</h1>
+		</div>
+	</header>
+	--->
+	<main>
+		<div class="wrapper">
+			<ul class="list_area">
+				<li>
+					<div class="check">
+						<button type="button"></button>
+					</div>
+					<div class="text_btx">
+						<p>ここにテキストが入る</p>
+					</div>
+				</li>
+				<li>
+					<div class="check">
+						<button type="button"></button>
+					</div>
+					<div class="text_btx">
+						<p>ここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入るここにテキストが入る</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</main>
+	<footer>
+		<div class="send_area">
+			<div class="wrapper">
+				<div class="content_box">
+					<input type="text" placeholder="ここにタスクを入力">
+					<div class="send_btn"><i class="fas fa-plus-circle"></i></div>
+				</div>
+			</div>
+		</div>
+		<div class="btn_area">
+			<ul class="content_box">
+				<li class="list">
+					<i class="fas fa-list-alt"></i>
+					<p>List</p>
+				</li>
+				<li class="done">
+					<i class="fas fa-check"></i>
+					<p>Done</p>
+				</li>
+				<li class="setting">
+					<i class="fas fa-car-crash"></i>
+					<p>Setting</p>
+				</li>
+			</ul>
+		</div>
+	</footer>
 </body>
 </html>
