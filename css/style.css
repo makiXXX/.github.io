@@ -75,6 +75,9 @@ img{
 	.wrapper {
 		padding: 0 10px;
 	}
+	input[type=text] {
+	  font-size: 16px;
+	}
 }
 
 
@@ -216,6 +219,9 @@ footer .btn_area .content_box p {
 }
 
 @media (max-width: 768px) {
+	main {
+		padding: 20px 0;
+	}
 	header .wrapper {
 		background-size: 280px auto;
 	}
@@ -224,6 +230,10 @@ footer .btn_area .content_box p {
 		line-height: 1;
 		text-shadow: 2px 2px 0 #242328;
 		padding: 15px 0;
+	}
+	main .list_area {
+		max-height: calc(100vh - 240px);
+		overflow: scroll;
 	}
 	main .list_area p {
 		font-size: 1.6rem;
