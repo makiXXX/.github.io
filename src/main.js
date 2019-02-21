@@ -97,7 +97,12 @@ new Vue({
           'sound/voice3.mp3',
           'sound/voice4.mp3',
           'sound/voice5.mp3',
-          'sound/voice6.mp3'
+          'sound/voice6.mp3',
+          'sound/voice7.mp3',
+          'sound/voice8.mp3',
+          'sound/voice9.mp3',
+          'sound/voice10.mp3',
+          'sound/voice11.mp3'
         ]
       var randSounds = sound[Math.floor(Math.random() * sound.length)]
       var audio = new Audio()
