@@ -13,46 +13,18 @@ var todoStorage = {
   }
 }
 
-// ルートオプションを渡してルーターインスタンスを生成します
-var router = new VueRouter({
-  // 各ルートにコンポーネントをマッピングします
-  // コンポーネントはVue.extend() によって作られたコンポーネントコンストラクタでも
-  // コンポーネントオプションのオブジェクトでも構いません
-  routes: [
-    {
-      path: '/list',
-      component: {
-        template: '<div>list</div>'
-      }
-    },
-    {
-      path: '/done',
-      component: {
-        template: '<div>done</div>'
-      }
-    },
-    {
-      path: '/setting',
-      component: {
-        template: '<div>setting</div>'
-      }
-    }
-  ]
-})
-
 new Vue({
   el: '#app',
-  router: router,
   data: {
     // ★STEP5 localStorage から 取得した ToDo のリスト
     todos: [],
     // ★STEP11 抽出しているToDoの状態
-    current: -1,
+    current: 0,
     // ★STEP11＆STEP13 各状態のラベル
     options: [
-      { value: -1, label: 'すべて' },
-      { value: 0, label: '作業中' },
-      { value: 1, label: '完了' }
+      { value: -1, label: 'すべて', text: 'All', text2: 'fas fa-list-ul' },
+      { value: 0, label: '作業中', text: 'List', text2: 'fas fa-tasks' },
+      { value: 1, label: '完了', text: 'Done', text2: 'fas fa-check' }
     ]
   },
 
@@ -119,6 +91,18 @@ new Vue({
     // ★STEP10 状態変更の処理
     doChangeState: function (item) {
       item.state = !item.state ? 1 : 0
+      var sound = [
+          'sound/voice1.mp3',
+          'sound/voice2.mp3',
+          'sound/voice3.mp3',
+          'sound/voice4.mp3',
+          'sound/voice5.mp3',
+          'sound/voice6.mp3'
+        ]
+      var randSounds = sound[Math.floor(Math.random() * sound.length)]
+      var audio = new Audio()
+      audio.src = randSounds
+      audio.play()
     },
 
     // ★STEP10 削除の処理

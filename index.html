@@ -20,30 +20,39 @@
 	<meta name="msapplication-config" content="./img/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
 	<script src="./src/worker.js"></script>
 
 	<title>MONI ToDo App</title>
 </head>
 <body>
+	<noscript>
+		<div class="no_script">
+			<p>Javascriptを有効にしてください。<br>Please enable JavaScript</p>
+		</div>
+	</noscript>
 	<header>
 		<div class="wrapper">
 			<h1>MONI ToDo App</h1>
 		</div>
 	</header>
+
 	<div id="app">
-		<router-view></router-view>
-		
 		<main>
 			<div class="wrapper">
+                <p>（{{ computedTodos.length }} 件を表示）</p>
+            
 				<ul class="list_area">
-					<li v-for="item in todos" v-bind:key="item.id">
-						<div class="check">
-							<button type="button" v-on:click="doRemove(item)"></button>
-						</div>
+					<li v-for="item in computedTodos" v-bind:key="item.id" v-bind:class="{done:item.state}">
+                        <div class="status">
+                            <button v-on:click="doChangeState(item)">
+                                <p>{{ labels[item.state] }}</p>
+                            </button>
+                        </div>
 						<div class="text_btx">
 							<p>{{ item.comment }}</p>
+						</div>
+						<div class="check">
+							<button type="button" v-on:click="doRemove(item)"><i class="fas fa-times-circle"></i></button>
 						</div>
 					</li>
 				</ul>
@@ -60,29 +69,19 @@
 
 		<footer>
 			<div class="btn_area">
-				<ul class="content_box">
-					<li class="list">
-						<router-link to="/list">
-							<i class="fas fa-list-alt"></i>
-							<p>List</p>
-						</router-link>
-					</li>
-					<li class="done">
-						<router-link to="/done">
-							<i class="fas fa-check"></i>
-							<p>Done</p>
-						</router-link>
-					</li>
-					<li class="setting">
-						<router-link to="/setting">
-							<i class="fas fa-car-crash"></i>
-							<p>Setting</p>
-						</router-link>
+				<ul class="content_box" >
+					<li v-for="label in options">
+                        <input type="radio" v-model="current" v-bind:value="label.value" v-bind:id="label.text">
+                        <label v-bind:for="label.text">
+                            <i v-bind:class="label.text2"></i>
+                            <p>{{ label.text }}</p>
+                        </label>
 					</li>
 				</ul>
 			</div>
 		</footer>
 	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 	<script src="https://cdn.jsdelivr.net/vue.router/2.0.1/vue-router.min.js"></script>
 	<script src="./src/main.js"></script>

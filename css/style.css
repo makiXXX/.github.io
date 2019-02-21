@@ -17,7 +17,7 @@ body {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	-webkit-text-size-adjust: 100%;
-	color: #fff;
+	color: #242328;
 	min-width: 100%;
 	width: 100%;
 	overflow-x: hidden;
@@ -61,6 +61,25 @@ img{
 	width: 100%;
 }
 
+.no_script {
+	background: #191c4b;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100%;
+	z-index: 100;
+}
+.no_script p {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	text-align: center;
+	width: 90%;
+	z-index: 101;
+}
+
 @media (max-width: 768px) {
 	p,
 	dt,
@@ -92,6 +111,7 @@ header .wrapper {
 	background: url("../img/moni_figure.png") no-repeat center left;
 }
 header h1 {
+    color: #fff;
 	font-size: 4rem;
 	text-align: right;
 	line-height: 1;
@@ -100,6 +120,13 @@ header h1 {
 
 main {
 	padding: 40px 0;
+}
+main .list_area {
+    max-height: calc(100vh - 340px);
+    overflow: scroll;
+}
+main .list_area::-webkit-scrollbar {
+	display:none;
 }
 main .list_area p {
 	color: #242328;
@@ -128,15 +155,42 @@ main .list_area li:last-child {
 main .list_area li .text_btx {
 	width: calc(100% - 40px);
 }
-main .list_area .check {
+main .list_area .check,
+main .list_area .status {
 	line-height: 1;
 }
 main .list_area .check button {
 	background: none;
-	border: solid 1px #242328;
-	border-radius: 50px;
-	height: 24px;
+    display: block;
+	height: auto;
 	width: 24px;
+}
+main .list_area .check button i {
+    color: #191c4b;
+    font-size: 2rem;
+}
+main .list_area .status {
+    margin-right: 10px;
+}
+main .list_area .status button {
+    background: #fff;
+    border: solid 1px #191c4b;
+    border-radius: 10px;
+    color: #191c4b;
+    display: block;
+	height: auto;
+    width: 50px;
+}
+main .list_area .done .status button {
+    background: #191c4b;
+}
+main .list_area .status p {
+    color: #000;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 2;
+}main .list_area .done .status p {
+    color: #fff;
 }
 .send_area {
 	background: #f3f3f3;
@@ -170,7 +224,7 @@ main .list_area .check button {
 	width: 100%;
 }
 .send_area .send_btn i {
-	color: #259ede;
+	color: #191c4b;
 	font-size: 3rem;
 	line-height: 2;
 }
@@ -199,17 +253,33 @@ footer .btn_area .content_box {
 	-webkit-justify-content: space-between;
 }
 footer .btn_area .content_box li {
-	border-right: solid 1px #111331;
+	border-right: solid 1px #666666;
+    color: #fff;
 	transition: all .3s;
 	text-align: center;
+	min-height: 76px;
 	width: calc(100% / 3);
 }
 footer .btn_area .content_box li:last-child {
 	border: none;
 }
 footer .btn_area .content_box li:hover {
-	background: #9bc2dd;
+	background: #645283;
 }
+footer .btn_area .content_box li button,
+footer .btn_area .content_box li label {
+    color: #fff;
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+footer .btn_area .content_box li input[type=radio] {
+    display: none;
+}
+footer .btn_area .content_box li input[type=radio]:checked + label {
+    background: #645283;
+}
+
 footer .btn_area .content_box i,
 footer .btn_area .content_box p {
 	line-height: 1;
@@ -225,6 +295,9 @@ footer .btn_area .content_box p {
 	header .wrapper {
 		background-size: 280px auto;
 	}
+	header .wrapper img {
+		max-width: 100px;
+	}
 	header h1 {
 		font-size: 2rem;
 		line-height: 1;
@@ -233,7 +306,6 @@ footer .btn_area .content_box p {
 	}
 	main .list_area {
 		max-height: calc(100vh - 240px);
-		overflow: scroll;
 	}
 	main .list_area p {
 		font-size: 1.6rem;
@@ -248,7 +320,8 @@ footer .btn_area .content_box p {
 	.send_area .content_box {
 		padding: 5px 0;
 	}
-	footer .btn_area li {
+	footer .btn_area .content_box li label {
+        min-height: 76px;
 		padding: 10px 0;
 	}
 	footer .btn_area .content_box p {
