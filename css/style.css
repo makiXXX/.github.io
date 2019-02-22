@@ -125,6 +125,7 @@ main {
 main .list_area {
     max-height: calc(100vh - 360px);
     overflow-y: scroll;
+    -ms-overflow-style:none;
 }
 main .list_area::-webkit-scrollbar {
 	display:none;
