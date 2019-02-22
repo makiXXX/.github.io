@@ -123,7 +123,7 @@ main {
 	padding: 40px 0;
 }
 main .list_area {
-    max-height: calc(100vh - 340px);
+    max-height: calc(100vh - 360px);
     overflow: scroll;
 }
 main .list_area::-webkit-scrollbar {
@@ -369,7 +369,7 @@ footer .btn_area .content_box p {
 		padding: 15px 0;
 	}
 	main .list_area {
-		max-height: calc(100vh - 240px);
+		max-height: calc(100vh - 260px);
 	}
 	main .list_area p {
 		font-size: 1.6rem;
