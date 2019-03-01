@@ -123,9 +123,8 @@ main {
 	padding: 40px 0;
 }
 main .list_area {
-    max-height: calc(100vh - 360px);
-    overflow-y: scroll;
-    -ms-overflow-style:none;
+    max-height: calc(100vh - 340px);
+    overflow: scroll;
 }
 main .list_area::-webkit-scrollbar {
 	display:none;
@@ -311,11 +310,6 @@ footer .btn_area .content_box p {
 }
 .menu_box {
     background: #fff;
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding-top: 40px;
     height: 100%;
     width: 100%;
     z-index: 1000;
@@ -370,7 +364,7 @@ footer .btn_area .content_box p {
 		padding: 15px 0;
 	}
 	main .list_area {
-		max-height: calc(100vh - 260px);
+		max-height: calc(100vh - 240px);
 	}
 	main .list_area p {
 		font-size: 1.6rem;

@@ -1,16 +1,20 @@
 {
-  "name": "MONI-ToDo-App",
-  "short_name": "MONI ToDo",
-  "background_color": "#ffffff",
-  "icons": [{
-      "src": "./img/icon-256.png",
-      "sizes": "256x256",
-      "type": "image/png"
-    },{
-      "src": "./img/icon-192.png",
+  "name": "my-tst-app",
+  "short_name": "my-tst-app",
+  "icons": [
+    {
+      "src": "./img/icons/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
-    }],
-  "start_url": "./?utm_source=homescreen",
-  "display": "standalone"
+    },
+    {
+      "src": "./img/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#4DBA87"
 }
